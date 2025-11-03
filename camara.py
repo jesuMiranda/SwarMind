@@ -3,9 +3,9 @@ import cv2.aruco as aruco
 
 def main():
     # Iniciar la cámara
-    cap = cv2.VideoCapture(1)
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+    cap = cv2.VideoCapture(0)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
 
     # Definir el diccionario de marcadores ArUco
     aruco_dict = aruco.Dictionary_get(aruco.DICT_5X5_50)
