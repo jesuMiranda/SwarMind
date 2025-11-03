@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>804</width>
-    <height>490</height>
+    <width>698</width>
+    <height>257</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>SwarMind</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>recursos/enjambre.png</normaloff>recursos/enjambre.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_5">
@@ -181,14 +185,19 @@
             <item>
              <widget class="QPushButton" name="playButton">
               <property name="styleSheet">
-               <string notr="true">color: rgb(0, 255, 255);</string>
+               <string notr="true">color: rgb(0, 255, 255);
+
+QpushButton{
+border: 0px;
+}
+</string>
               </property>
               <property name="text">
                <string/>
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>../recursos/Play2.svg</normaloff>../recursos/Play2.svg</iconset>
+                <normaloff>recursos/Play2.svg</normaloff>recursos/Play2.svg</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -205,7 +214,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>../recursos/pause2svg.svg</normaloff>../recursos/pause2svg.svg</iconset>
+                <normaloff>recursos/pause2svg.svg</normaloff>recursos/pause2svg.svg</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -222,7 +231,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>../recursos/stop (1).svg</normaloff>../recursos/stop (1).svg</iconset>
+                <normaloff>recursos/stop (1).svg</normaloff>recursos/stop (1).svg</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -470,7 +479,11 @@ color: rgb(68, 169, 197);
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
-           <widget class="QTableView" name="tableView"/>
+           <widget class="QPushButton" name="levelbutton">
+            <property name="text">
+             <string>Calibrar</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
