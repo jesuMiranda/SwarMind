@@ -1,9 +1,10 @@
 import sys
 import cv2
+import PruebaWIFI1  
 from PyQt5 import QtWidgets, QtCore, QtGui
 from EnjambreMain import Ui_MainWindow
-from ventana_conexion import VentanaConexion
-import PruebaWIFI1  # si no lo necesitas aún, puedes comentar esta línea
+
+
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -15,8 +16,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # =========================
         # Iniciar servidor de comunicación con ESPs
         PruebaWIFI1.iniciar_servidor()
-        # Registrar la función callback para recibir mensajes
-       # PruebaWIFI1.set_callback(self.recibir_mensaje)
+
+       
 
 
         # === Inicializar cámara ===
@@ -33,8 +34,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.playButton.clicked.connect(self.encender_robots)
         self.pauseButton.clicked.connect(self.pausar_robots)
         self.stopButton.clicked.connect(self.stop_robots)
+        # === Botones de conexión y calibración ===
+        self.enviarButton.clicked.connect(self.enviar_variables)
         self.levelbutton.clicked.connect(self.calibrar_robots)
-        self.ConexionButton.clicked.connect(self.abrir_ventana_conexion)
+
 
 
     def update_frame(self):
@@ -66,13 +69,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     # =========================
     # Funciones de los botones
     # =========================
-    def abrir_ventana_conexion(self):
-        """Abre la ventana emergente de conexión."""
-        self.ventana_conexion = VentanaConexion()
-        self.ventana_conexion.show()
-
-
-
     def encender_robots(self):
         print("[GUI] Enviando comando play a los robots")
         PruebaWIFI1.encender_robots()
@@ -88,6 +84,38 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def calibrar_robots(self):
         print("[GUI] Enviando comando CALIBRATE a los robots")
         PruebaWIFI1.calibrar_robots()
+
+    def enviar_variables(self):
+        try:
+            # Leer valores de los QLineEdit
+            L = self.Lux_lit.text().strip() 
+            D = self.ran_detec.text().strip() 
+            V = self.vel_motor.text().strip() 
+            A = self.thetha_luz.text().strip() 
+            M = self.tiempo_prueba.text().strip() 
+            S = self.Tmax_var.text().strip() 
+
+            # Convertir a formato decimal limpio
+            L = str(float(L))
+            D = str(float(D))
+            V = str(float(V))
+            A = str(float(A))
+            M = str(float(M))
+            S = str(float(S))
+
+            # Construir trama
+            comando = f"VARIABLES: L{L} D{D} V{V} A{A} M{M} S{S}"
+            print(f"[GUI] Enviando: {comando}")
+
+            # Enviar a todos los robots conectados
+            for esp_id in list(PruebaWIFI1.clientes.keys()):
+                PruebaWIFI1.enviar_mensaje(esp_id, comando)
+
+            QtWidgets.QMessageBox.information(self, "Trama enviada", "Variables enviadas correctamente.")
+
+        except Exception as e:
+            QtWidgets.QMessageBox.warning(self, "Error", f"No se pudieron enviar las variables:\n{e}")
+
 
     def closeEvent(self, event):
         """Liberar la cámara al cerrar la ventana."""

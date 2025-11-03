@@ -1,7 +1,7 @@
 import sys
 import cv2
 from PyQt5 import QtWidgets, QtCore, QtGui
-from EnjambreMain import Ui_MainWindow
+from SwarMind.EnjambreMain import Ui_MainWindow
 import PruebaWIFI1  # si no lo necesitas aún, puedes comentar esta línea
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):

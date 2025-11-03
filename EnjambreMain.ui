@@ -18,7 +18,19 @@
     <normaloff>recursos/enjambre.svg</normaloff>recursos/enjambre.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_5">
+   <layout class="QGridLayout" name="_2" rowstretch="0" columnstretch="0" rowminimumheight="0" columnminimumwidth="0">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item row="0" column="0">
      <widget class="QFrame" name="PrincipalFrame">
       <property name="styleSheet">
@@ -83,7 +95,10 @@
             <item>
              <widget class="QLabel" name="label_3">
               <property name="text">
-               <string>     SwarMind</string>
+               <string>SwarMind</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -120,7 +135,10 @@
             <item>
              <widget class="QLabel" name="label_4">
               <property name="text">
-               <string>      Prueba</string>
+               <string>Prueba</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -157,7 +175,10 @@
             <item>
              <widget class="QLabel" name="label_5">
               <property name="text">
-               <string>    Resultados</string>
+               <string> Resultados</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -177,11 +198,27 @@
             <item>
              <widget class="QPushButton" name="AboutButton">
               <property name="text">
-               <string>about</string>
+               <string/>
               </property>
               <property name="icon">
                <iconset>
                 <normaloff>recursos/about.png</normaloff>recursos/about.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>about us</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -379,7 +416,7 @@ color: rgb(68, 169, 197);
 </string>
               </property>
               <property name="text">
-               <string>Cantidad de robots</string>
+               <string>No. Robots</string>
               </property>
              </widget>
             </item>
@@ -489,7 +526,7 @@ color: rgb(68, 169, 197);
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="plot">
             <property name="styleSheet">
              <string notr="true">background-color: rgb(145, 145, 145);</string>
             </property>
@@ -525,101 +562,171 @@ color: rgb(68, 169, 197);
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QGridLayout" name="gridLayout_6">
+             <item row="3" column="0">
+              <widget class="QLabel" name="tiempo">
+               <property name="styleSheet">
+                <string notr="true">font: 10pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
+               <property name="text">
+                <string>Tiempo de prueba (minutos)</string>
+               </property>
+              </widget>
+             </item>
              <item row="0" column="0">
               <widget class="QLabel" name="vel">
+               <property name="styleSheet">
+                <string notr="true">font: 10pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
                <property name="text">
                 <string>PWM </string>
                </property>
               </widget>
              </item>
-             <item row="0" column="2">
-              <widget class="QLineEdit" name="vel_motor">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="deteccion">
-               <property name="text">
-                <string>rango de detección</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2">
-              <widget class="QLineEdit" name="ran_detec">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
              <item row="2" column="0" colspan="2">
               <widget class="QLabel" name="alpha">
+               <property name="styleSheet">
+                <string notr="true">font: 10pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
                <property name="text">
-                <string>variable thetha de luz</string>
+                <string>Variable thetha</string>
                </property>
               </widget>
              </item>
              <item row="2" column="2">
               <widget class="QLineEdit" name="thetha_luz">
-               <property name="text">
-                <string/>
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
                </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="tiempo">
                <property name="text">
-                <string>tiempo de pruebla</string>
+                <string>450000</string>
                </property>
               </widget>
              </item>
              <item row="3" column="2">
               <widget class="QLineEdit" name="tiempo_prueba">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
                <property name="text">
-                <string/>
+                <string>3</string>
                </property>
               </widget>
              </item>
              <item row="4" column="0">
               <widget class="QLabel" name="tiempo_2">
+               <property name="styleSheet">
+                <string notr="true">font: 10pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
                <property name="text">
-                <string>lux</string>
+                <string>Lux</string>
                </property>
               </widget>
              </item>
              <item row="4" column="2">
               <widget class="QLineEdit" name="Lux_lit">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
                <property name="text">
-                <string/>
+                <string>500</string>
                </property>
               </widget>
              </item>
              <item row="5" column="0">
               <widget class="QLabel" name="label_2">
+               <property name="styleSheet">
+                <string notr="true">font: 10pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
                <property name="text">
                 <string>Tmax</string>
                </property>
               </widget>
              </item>
-             <item row="5" column="2">
-              <widget class="QLineEdit" name="Tmax_var">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
              <item row="6" column="0">
               <widget class="QPushButton" name="enviarButton">
+               <property name="styleSheet">
+                <string notr="true">font: 10pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
                <property name="text">
                 <string>Enviar</string>
                </property>
               </widget>
              </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="deteccion">
+               <property name="styleSheet">
+                <string notr="true">font: 10pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
+               <property name="text">
+                <string>Rango de detección</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLineEdit" name="ran_detec">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
+               <property name="text">
+                <string>0.8</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLineEdit" name="vel_motor">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
+               <property name="text">
+                <string>150</string>
+               </property>
+              </widget>
+             </item>
              <item row="6" column="1" colspan="2">
               <widget class="QPushButton" name="levelbutton">
+               <property name="styleSheet">
+                <string notr="true">font: 10pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
                <property name="text">
                 <string>Calibrar sensores de distancia</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="2">
+              <widget class="QLineEdit" name="Tmax_var">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Tahoma&quot;;
+color: rgb(68, 169, 197);
+</string>
+               </property>
+               <property name="text">
+                <string>60</string>
                </property>
               </widget>
              </item>
