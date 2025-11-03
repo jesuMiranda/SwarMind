@@ -39,13 +39,15 @@ class Ui_MainWindow(object):
         self.Lateral.setLineWidth(0)
         self.Lateral.setObjectName("Lateral")
         self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.Lateral)
+        self.verticalLayout_8.setContentsMargins(3, 3, 3, 3)
+        self.verticalLayout_8.setSpacing(3)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout()
         self.verticalLayout_7.setObjectName("verticalLayout_7")
         self.SwarButton = QtWidgets.QPushButton(self.Lateral)
         self.SwarButton.setText("")
         self.SwarButton.setIcon(icon)
-        self.SwarButton.setIconSize(QtCore.QSize(32, 32))
+        self.SwarButton.setIconSize(QtCore.QSize(50, 50))
         self.SwarButton.setObjectName("SwarButton")
         self.verticalLayout_7.addWidget(self.SwarButton)
         self.label_3 = QtWidgets.QLabel(self.Lateral)
@@ -59,7 +61,7 @@ class Ui_MainWindow(object):
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("recursos/prueba.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.TestButton.setIcon(icon1)
-        self.TestButton.setIconSize(QtCore.QSize(32, 32))
+        self.TestButton.setIconSize(QtCore.QSize(50, 50))
         self.TestButton.setObjectName("TestButton")
         self.verticalLayout_7.addWidget(self.TestButton)
         self.label_4 = QtWidgets.QLabel(self.Lateral)
@@ -73,7 +75,7 @@ class Ui_MainWindow(object):
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("recursos/Resultados.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ResuButton.setIcon(icon2)
-        self.ResuButton.setIconSize(QtCore.QSize(32, 32))
+        self.ResuButton.setIconSize(QtCore.QSize(50, 50))
         self.ResuButton.setObjectName("ResuButton")
         self.verticalLayout_7.addWidget(self.ResuButton)
         self.label_5 = QtWidgets.QLabel(self.Lateral)
@@ -87,7 +89,7 @@ class Ui_MainWindow(object):
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("recursos/about.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.AboutButton.setIcon(icon3)
-        self.AboutButton.setIconSize(QtCore.QSize(32, 32))
+        self.AboutButton.setIconSize(QtCore.QSize(50, 50))
         self.AboutButton.setObjectName("AboutButton")
         self.verticalLayout_7.addWidget(self.AboutButton)
         self.label_6 = QtWidgets.QLabel(self.Lateral)
@@ -276,14 +278,9 @@ class Ui_MainWindow(object):
         self.thetha_luz.setStyleSheet("font: 12pt \"Tahoma\";\n"
 "color: rgb(68, 169, 197);\n"
 "")
+        self.thetha_luz.setText("")
         self.thetha_luz.setObjectName("thetha_luz")
         self.gridLayout_6.addWidget(self.thetha_luz, 2, 2, 1, 1)
-        self.tiempo_prueba = QtWidgets.QLineEdit(self.frame)
-        self.tiempo_prueba.setStyleSheet("font: 12pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.tiempo_prueba.setObjectName("tiempo_prueba")
-        self.gridLayout_6.addWidget(self.tiempo_prueba, 3, 2, 1, 1)
         self.tiempo_2 = QtWidgets.QLabel(self.frame)
         self.tiempo_2.setStyleSheet("font: 10pt \"Tahoma\";\n"
 "color: rgb(68, 169, 197);\n"
@@ -294,6 +291,7 @@ class Ui_MainWindow(object):
         self.Lux_lit.setStyleSheet("font: 12pt \"Tahoma\";\n"
 "color: rgb(68, 169, 197);\n"
 "")
+        self.Lux_lit.setText("")
         self.Lux_lit.setObjectName("Lux_lit")
         self.gridLayout_6.addWidget(self.Lux_lit, 4, 2, 1, 1)
         self.label_2 = QtWidgets.QLabel(self.frame)
@@ -314,16 +312,11 @@ class Ui_MainWindow(object):
 "")
         self.deteccion.setObjectName("deteccion")
         self.gridLayout_6.addWidget(self.deteccion, 1, 0, 1, 1)
-        self.ran_detec = QtWidgets.QLineEdit(self.frame)
-        self.ran_detec.setStyleSheet("font: 12pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.ran_detec.setObjectName("ran_detec")
-        self.gridLayout_6.addWidget(self.ran_detec, 1, 2, 1, 1)
         self.vel_motor = QtWidgets.QLineEdit(self.frame)
         self.vel_motor.setStyleSheet("font: 12pt \"Tahoma\";\n"
 "color: rgb(68, 169, 197);\n"
 "")
+        self.vel_motor.setText("")
         self.vel_motor.setObjectName("vel_motor")
         self.gridLayout_6.addWidget(self.vel_motor, 0, 2, 1, 1)
         self.levelbutton = QtWidgets.QPushButton(self.frame)
@@ -336,8 +329,23 @@ class Ui_MainWindow(object):
         self.Tmax_var.setStyleSheet("font: 12pt \"Tahoma\";\n"
 "color: rgb(68, 169, 197);\n"
 "")
+        self.Tmax_var.setText("")
         self.Tmax_var.setObjectName("Tmax_var")
         self.gridLayout_6.addWidget(self.Tmax_var, 5, 2, 1, 1)
+        self.ran_detec = QtWidgets.QLineEdit(self.frame)
+        self.ran_detec.setStyleSheet("font: 12pt \"Tahoma\";\n"
+"color: rgb(68, 169, 197);\n"
+"")
+        self.ran_detec.setText("")
+        self.ran_detec.setObjectName("ran_detec")
+        self.gridLayout_6.addWidget(self.ran_detec, 1, 2, 1, 1)
+        self.tiempo_prueba = QtWidgets.QLineEdit(self.frame)
+        self.tiempo_prueba.setStyleSheet("font: 12pt \"Tahoma\";\n"
+"color: rgb(68, 169, 197);\n"
+"")
+        self.tiempo_prueba.setText("")
+        self.tiempo_prueba.setObjectName("tiempo_prueba")
+        self.gridLayout_6.addWidget(self.tiempo_prueba, 3, 2, 1, 1)
         self.gridLayout_3.addWidget(self.frame, 0, 0, 1, 1)
         self.gridLayout.addWidget(self.bloque2, 1, 1, 1, 1)
         self.gridLayout.setColumnStretch(0, 1)
@@ -370,17 +378,11 @@ class Ui_MainWindow(object):
         self.tiempo.setText(_translate("MainWindow", "Tiempo de prueba (minutos)"))
         self.vel.setText(_translate("MainWindow", "PWM "))
         self.alpha.setText(_translate("MainWindow", "Variable thetha"))
-        self.thetha_luz.setText(_translate("MainWindow", "450000"))
-        self.tiempo_prueba.setText(_translate("MainWindow", "3"))
         self.tiempo_2.setText(_translate("MainWindow", "Lux"))
-        self.Lux_lit.setText(_translate("MainWindow", "500"))
         self.label_2.setText(_translate("MainWindow", "Tmax"))
         self.enviarButton.setText(_translate("MainWindow", "Enviar"))
         self.deteccion.setText(_translate("MainWindow", "Rango de detección"))
-        self.ran_detec.setText(_translate("MainWindow", "0.8"))
-        self.vel_motor.setText(_translate("MainWindow", "150"))
         self.levelbutton.setText(_translate("MainWindow", "Calibrar sensores de distancia"))
-        self.Tmax_var.setText(_translate("MainWindow", "60"))
 
 
 if __name__ == "__main__":

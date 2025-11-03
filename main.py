@@ -4,8 +4,6 @@ import PruebaWIFI1
 from PyQt5 import QtWidgets, QtCore, QtGui
 from EnjambreMain import Ui_MainWindow
 
-
-
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -16,9 +14,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # =========================
         # Iniciar servidor de comunicación con ESPs
         PruebaWIFI1.iniciar_servidor()
-
-       
-
 
         # === Inicializar cámara ===
         self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW) # usa 0 si es la cámara principal
@@ -34,9 +29,17 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.playButton.clicked.connect(self.encender_robots)
         self.pauseButton.clicked.connect(self.pausar_robots)
         self.stopButton.clicked.connect(self.stop_robots)
-        # === Botones de conexión y calibración ===
+
+        # ===  conexión y calibración ===
         self.enviarButton.clicked.connect(self.enviar_variables)
         self.levelbutton.clicked.connect(self.calibrar_robots)
+        # Valores por defecto (puedes ajustar desde Qt Designer también)
+        self.Lux_lit.setText("500")
+        self.ran_detec.setText("0.8")
+        self.vel_motor.setText("150")
+        self.thetha_luz.setText("450000")
+        self.tiempo_prueba.setText("3")
+        self.Tmax_var.setText("60")
 
 
 
