@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>698</width>
-    <height>257</height>
+    <width>807</width>
+    <height>456</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>recursos/enjambre.png</normaloff>recursos/enjambre.png</iconset>
+    <normaloff>recursos/enjambre.svg</normaloff>recursos/enjambre.svg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_5">
@@ -66,7 +66,24 @@
             <item>
              <widget class="QPushButton" name="SwarButton">
               <property name="text">
-               <string>Swarm</string>
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>recursos/enjambre.svg</normaloff>recursos/enjambre.svg</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>     SwarMind</string>
               </property>
              </widget>
             </item>
@@ -86,7 +103,24 @@
             <item>
              <widget class="QPushButton" name="TestButton">
               <property name="text">
-               <string>prueba</string>
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>recursos/prueba.png</normaloff>recursos/prueba.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>      Prueba</string>
               </property>
              </widget>
             </item>
@@ -106,7 +140,24 @@
             <item>
              <widget class="QPushButton" name="ResuButton">
               <property name="text">
-               <string>resultados</string>
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>recursos/Resultados.png</normaloff>recursos/Resultados.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>    Resultados</string>
               </property>
              </widget>
             </item>
@@ -124,29 +175,13 @@
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="ConexionButton">
-              <property name="text">
-               <string>Conexion</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="verticalSpacer_4">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>38</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
              <widget class="QPushButton" name="AboutButton">
               <property name="text">
                <string>about</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>recursos/about.png</normaloff>recursos/about.png</iconset>
               </property>
              </widget>
             </item>
@@ -479,10 +514,116 @@ color: rgb(68, 169, 197);
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
-           <widget class="QPushButton" name="levelbutton">
-            <property name="text">
-             <string>Calibrar</string>
+           <widget class="QFrame" name="frame">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(237, 250, 254);</string>
             </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_6">
+             <item row="0" column="0">
+              <widget class="QLabel" name="vel">
+               <property name="text">
+                <string>PWM </string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLineEdit" name="vel_motor">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="deteccion">
+               <property name="text">
+                <string>rango de detección</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLineEdit" name="ran_detec">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QLabel" name="alpha">
+               <property name="text">
+                <string>variable thetha de luz</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="QLineEdit" name="thetha_luz">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="tiempo">
+               <property name="text">
+                <string>tiempo de pruebla</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="2">
+              <widget class="QLineEdit" name="tiempo_prueba">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="tiempo_2">
+               <property name="text">
+                <string>lux</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="2">
+              <widget class="QLineEdit" name="Lux_lit">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>Tmax</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="2">
+              <widget class="QLineEdit" name="Tmax_var">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0">
+              <widget class="QPushButton" name="enviarButton">
+               <property name="text">
+                <string>Enviar</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1" colspan="2">
+              <widget class="QPushButton" name="levelbutton">
+               <property name="text">
+                <string>Calibrar sensores de distancia</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
