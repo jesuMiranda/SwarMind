@@ -15,23 +15,20 @@ class CameraHandler:
         ret, frame = self.cap.read()
         if not ret:
             return None
-        frame = cv2.flip(frame, 1)
 
+        # Invertir la imagen 180° (de cabeza)
+        frame = cv2.flip(frame, -1)
 
+        # Detección de marcadores ArUco
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         corners, ids, _ = cv2.aruco.detectMarkers(gray, self.aruco_dict, parameters=self.parameters)
-        if not ret:
-            return None, None, None
 
         if ids is not None:
             cv2.aruco.drawDetectedMarkers(frame, corners, ids)
 
-        # Convertir a RGB antes de enviarlo a PyQt
+        # Convertir a RGB para Qt
         frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         return frame_rgb, corners, ids
-        
-
-
 
     def release(self):
         if self.cap.isOpened():

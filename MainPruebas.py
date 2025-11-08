@@ -42,17 +42,18 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if frame is None:
             return
 
+        # 1️⃣ Mostrar cámara
         h, w, ch = frame.shape
         bytes_per_line = ch * w
         q_img = QtGui.QImage(frame.data, w, h, bytes_per_line, QtGui.QImage.Format_RGB888)
         pixmap = QtGui.QPixmap.fromImage(q_img)
-
         self.camara.setPixmap(pixmap.scaled(
             self.camara.width(),
             self.camara.height(),
             QtCore.Qt.KeepAspectRatio
         ))
 
+        # 2️⃣ Actualizar plano
         self.plano.actualizar_puntos(corners, ids)
         plano_img = self.plano.generar_plano()
 
@@ -63,9 +64,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.plot.setPixmap(pixmap2.scaled(
             self.plot.width(),
             self.plot.height(),
-            QtCore.Qt.IgnoreAspectRatio,
-            QtCore.Qt.SmoothTransformation
+            QtCore.Qt.KeepAspectRatio
         ))
+
 
 
     # Funciones de botones
