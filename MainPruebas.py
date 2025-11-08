@@ -1,90 +1,108 @@
 import sys
-import cv2
 from PyQt5 import QtWidgets, QtCore, QtGui
-from SwarMind.EnjambreMain import Ui_MainWindow
-import PruebaWIFI1  # si no lo necesitas aún, puedes comentar esta línea
+import PruebaWIFI1
+from EnjambreMain import Ui_MainWindow
+from cam import CameraHandler
+from plot import Plothandler
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setupUi(self)
 
-        # =========================
-        # Funciones del servidor
-        # =========================
-        # Iniciar servidor de comunicación con ESPs
+        # Iniciar servidor
         PruebaWIFI1.iniciar_servidor()
-        # Registrar la función callback para recibir mensajes
-       # PruebaWIFI1.set_callback(self.recibir_mensaje)
+
+        # === Cámara ===
+        self.camera = CameraHandler()
+        self.plano = Plothandler()
 
 
-        # === Inicializar cámara ===
-        self.cap = cv2.VideoCapture(0, cv2.CAP_DSHOW) # usa 0 si es la cámara principal
-        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
-
-        # Timer para actualizar frames
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.update_frame)
-        self.timer.start(30)  # cada 30 ms (~33 fps)
+        self.timer.start(30)
 
-        # === Conexiones de botones ===
+        # === Conexiones ===
         self.playButton.clicked.connect(self.encender_robots)
         self.pauseButton.clicked.connect(self.pausar_robots)
         self.stopButton.clicked.connect(self.stop_robots)
+        self.enviarButton.clicked.connect(self.enviar_variables)
         self.levelbutton.clicked.connect(self.calibrar_robots)
 
+        # Valores por defecto
+        self.Lux_lit.setText("500")
+        self.ran_detec.setText("0.8")
+        self.vel_motor.setText("150")
+        self.thetha_luz.setText("450000")
+        self.tiempo_prueba.setText("3")
+        self.Tmax_var.setText("60")
+
     def update_frame(self):
-        ret, frame = self.cap.read()
-        if not ret:
+        frame, corners, ids = self.camera.get_frame()
+        if frame is None:
             return
 
-        # Procesar frame (ejemplo: detección ArUco)
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        aruco_dict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_5X5_50)
-        parameters = cv2.aruco.DetectorParameters_create()
-        corners, ids, rejected = cv2.aruco.detectMarkers(gray, aruco_dict, parameters=parameters)
-        if ids is not None:
-            cv2.aruco.drawDetectedMarkers(frame, corners, ids)
-
-        # Convertir a QImage
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         h, w, ch = frame.shape
         bytes_per_line = ch * w
         q_img = QtGui.QImage(frame.data, w, h, bytes_per_line, QtGui.QImage.Format_RGB888)
         pixmap = QtGui.QPixmap.fromImage(q_img)
 
-        # Mostrar en QLabel (ajustar tamaño)
         self.camara.setPixmap(pixmap.scaled(
-            self.camara.width(), self.camara.height(),
+            self.camara.width(),
+            self.camara.height(),
             QtCore.Qt.KeepAspectRatio
         ))
 
-    # =========================
-    # Funciones de los botones
-    # =========================
+        self.plano.actualizar_puntos(corners, ids)
+        plano_img = self.plano.generar_plano()
+
+        h2, w2, ch2 = plano_img.shape
+        bytes_per_line2 = ch2 * w2
+        q_img2 = QtGui.QImage(plano_img.data, w2, h2, bytes_per_line2, QtGui.QImage.Format_RGB888)
+        pixmap2 = QtGui.QPixmap.fromImage(q_img2)
+        self.plot.setPixmap(pixmap2.scaled(
+            self.plot.width(),
+            self.plot.height(),
+            QtCore.Qt.IgnoreAspectRatio,
+            QtCore.Qt.SmoothTransformation
+        ))
 
 
+    # Funciones de botones
     def encender_robots(self):
-        print("[GUI] Enviando comando play a los robots")
         PruebaWIFI1.encender_robots()
 
     def pausar_robots(self):
-        print("[GUI] Enviando comando pause a los robots")
         PruebaWIFI1.pausar_robots()
 
     def stop_robots(self):
-        print("[GUI] Enviando comando STOP a los robots")
         PruebaWIFI1.stop_robots()
 
     def calibrar_robots(self):
-        print("[GUI] Enviando comando CALIBRATE a los robots")
         PruebaWIFI1.calibrar_robots()
 
+    def enviar_variables(self):
+        try:
+            L = str(float(self.Lux_lit.text().strip()))
+            D = str(float(self.ran_detec.text().strip()))
+            V = str(float(self.vel_motor.text().strip()))
+            A = str(float(self.thetha_luz.text().strip()))
+            M = str(float(self.tiempo_prueba.text().strip()))
+            S = str(float(self.Tmax_var.text().strip()))
+
+            comando = f"VARIABLES: L{L} D{D} V{V} A{A} M{M} S{S}"
+            print(f"[GUI] Enviando: {comando}")
+
+            for esp_id in list(PruebaWIFI1.clientes.keys()):
+                PruebaWIFI1.enviar_mensaje(esp_id, comando)
+
+            QtWidgets.QMessageBox.information(self, "Trama enviada", "Variables enviadas correctamente.")
+        except Exception as e:
+            QtWidgets.QMessageBox.warning(self, "Error", f"No se pudieron enviar las variables:\n{e}")
+
     def closeEvent(self, event):
-        """Liberar la cámara al cerrar la ventana."""
-        if self.cap.isOpened():
-            self.cap.release()
+        """Liberar la cámara al cerrar."""
+        self.camera.release()
         event.accept()
 
 if __name__ == "__main__":
