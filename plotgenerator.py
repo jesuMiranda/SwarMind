@@ -57,10 +57,16 @@ class TrajectoryGenerator:
             frame = np.ones((h, w, 3), dtype=np.uint8) * 255  # Fondo blanco
 
             # Dibujar la trayectoria de cada robot en el frame actual
-            for robot_id, puntos in self.tracks.items():
-                if i < len(puntos):
-                    x, y = puntos[i]
-                    cv2.circle(frame, (int(x), int(y)), 6, (0, 0, 255), -1)
+            for robot_id, points in self.tracks.items():
+                color = self.palette.get(robot_id, (50, 50, 50))
+
+                # Dibujar punto y líneas hasta el frame t
+                for i in range(1, min(i, len(points)-1)):
+                    cv2.line(frame, points[i-1], points[i], color, 3)
+
+                if i < len(points):
+                    cv2.circle(frame, points[i], 8, color, -1)
+
 
             # Escribir frame al video
             video.write(frame)
