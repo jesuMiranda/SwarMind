@@ -1,11 +1,13 @@
+import os
 import sys
-from PyQt5 import QtWidgets, QtCore, QtGui
 import PruebaWIFI1
 import cv2
+from PyQt5 import QtWidgets, QtCore, QtGui
 from EnjambreMain import Ui_MainWindow
 from cam import CameraHandler
 from plot import Plothandler
 from resultados import ResultadosWindow
+
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -75,7 +77,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # 3 Grabar video si está en modo grabación
         if self.camera.recording:
             frame_bgr = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+
+            # opcional pero recomendado:
+            frame_bgr = cv2.resize(frame_bgr, (1280, 720))
+
             self.camera.write_frame(frame_bgr)
+
 
 
 
@@ -107,15 +114,41 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def encender_robots(self):
         PruebaWIFI1.encender_robots()
         # === INICIO DE GRABACIÓN ===
+        
+
+        # crear carpeta
+        if not os.path.exists("videos"):
+            os.makedirs("videos")
+
         minutos = float(self.tiempo_prueba.text().strip())
         self.record_time_ms = int(minutos * 60 * 1000)
+        # Obtén tamaño real del frame
+        frame, _, _ = self.camera.get_frame()
+        h, w, ch = frame.shape
 
-        name = self.name.text()
-        self.recording_filename = f"videos/{name}.mp4"
+        # reducir resolución antes de grabar
+        w, h = 1280, 720
+        self.camera.start_recording(self.recording_filename, w, h)
+        import datetime
 
-        self.camera.start_recording(self.recording_filename)
+        # Generar nombre único sin caracteres raros
+        fecha = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        self.recording_filename = f"videos/experimento_{fecha}.avi"
+        ruta_abs = os.path.abspath(self.recording_filename)
+        print("Guardando video en:", ruta_abs)
+        frame, _, _ = self.camera.get_frame()
+        h, w, ch = frame.shape
+
+        # resolución estable para grabación
+        w, h = 1280, 720
+
+        self.camera.start_recording(ruta_abs, w, h)
+        print("VideoWriter abierto?:", self.camera.video_writer.isOpened())
+
 
         self.record_timer.start(self.record_time_ms)
+        print("VideoWriter abierto?:", self.camera.video_writer.isOpened())
+
 
     def pausar_robots(self):
         PruebaWIFI1.pausar_robots()
@@ -141,7 +174,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             for esp_id in list(PruebaWIFI1.clientes.keys()):
                 PruebaWIFI1.enviar_mensaje(esp_id, comando)
 
-            QtWidgets.QMessageBox.information(self, "Trama enviada", "Variables enviadas correctamente.")
         except Exception as e:
             QtWidgets.QMessageBox.warning(self, "Error", f"No se pudieron enviar las variables:\n{e}")
 

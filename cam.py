@@ -16,10 +16,13 @@ class CameraHandler:
         self.recording = False
         self.video_writer = None
 
-    def start_recording(self, filename):
-        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        self.video_writer = cv2.VideoWriter(filename, fourcc, 30.0, (1920, 1080))
+    def start_recording(self, filename, frame_width, frame_height):
+        fourcc = cv2.VideoWriter_fourcc(*'MJPG')      # codec estable en Windows
+        self.video_writer = cv2.VideoWriter(filename, fourcc, 30.0,
+                                            (frame_width, frame_height))
+        print("VideoWriter opened:", self.video_writer.isOpened())
         self.recording = True
+
 
     def stop_recording(self):
         self.recording = False
@@ -30,7 +33,9 @@ class CameraHandler:
     def write_frame(self, frame_bgr):
         if self.recording and self.video_writer is not None:
             self.video_writer.write(frame_bgr)
-            
+
+
+
     def get_frame(self):
         """Lee un frame de la cámara y devuelve la imagen procesada."""
         ret, frame = self.cap.read()
