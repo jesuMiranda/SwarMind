@@ -27,30 +27,46 @@ class TrajectoryGenerator:
 
                 self.tracks[robot_id].append((cx, cy))
 
-    def generate_video(self, output_path, width, height, fps=30):
-        """Genera video de las trayectorias."""
-        fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-        out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
+    def generate_video(self, output_path, w, h, fps):
+        """Genera un video con las trayectorias almacenadas."""
+        # 1. Validación: si no existen trayectorias, NO generar video
+        if not self.tracks or len(self.tracks) == 0:
+            print("[PlotGenerator] No se detectaron trayectorias. No se generará video.")
+            return False
 
-        # Crear fondo blanco
-        base = np.ones((height, width, 3), dtype=np.uint8) * 255
+        # 2. Validación adicional: si existen pero están vacías
+        datos_validos = any(len(lista) > 0 for lista in self.tracks.values())
+        if not datos_validos:
+            print("[PlotGenerator] Las trayectorias existen pero están vacías. No se generará video.")
+            return False
 
-        # reproducir las trayectorias frame por frame
+        # 3. Obtener la longitud máxima de todas las trayectorias
         max_len = max(len(lista) for lista in self.tracks.values())
 
-        for t in range(max_len):
-            frame = base.copy()
+        # 4. Crear el objeto VideoWriter
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')  # Más estable en Windows
+        video = cv2.VideoWriter(output_path, fourcc, fps, (w, h))
 
-            for robot_id, points in self.tracks.items():
-                color = self.palette.get(robot_id, (50, 50, 50))
+        if not video.isOpened():
+            print("[PlotGenerator] ERROR: No se pudo abrir VideoWriter.")
+            print("[PlotGenerator] Ruta:", output_path)
+            return False
 
-                # Dibujar punto y líneas hasta el frame t
-                for i in range(1, min(t, len(points)-1)):
-                    cv2.line(frame, points[i-1], points[i], color, 3)
+        # 5. Generar los frames del video
+        for i in range(max_len):
+            frame = np.ones((h, w, 3), dtype=np.uint8) * 255  # Fondo blanco
 
-                if t < len(points):
-                    cv2.circle(frame, points[t], 8, color, -1)
+            # Dibujar la trayectoria de cada robot en el frame actual
+            for robot_id, puntos in self.tracks.items():
+                if i < len(puntos):
+                    x, y = puntos[i]
+                    cv2.circle(frame, (int(x), int(y)), 6, (0, 0, 255), -1)
 
-            out.write(frame)
+            # Escribir frame al video
+            video.write(frame)
 
-        out.release()
+        # 6. Cerrar el video
+        video.release()
+
+        print(f"[PlotGenerator] Video generado correctamente en: {output_path}")
+        return True

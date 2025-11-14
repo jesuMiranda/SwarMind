@@ -136,9 +136,15 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         trayectoria_path = self.recording_filename.replace(".avi", "_traj.avi")
 
         # Generar video de trayectorias
-        gen.generate_video(trayectoria_path, w, h, int(fps))
-
+        ok = gen.generate_video(trayectoria_path, w, h, int(fps))
         print("Video de trayectorias generado:", trayectoria_path)
+        if not ok:
+            print("[MainPruebas] No se generó video porque no hubo detecciones.")
+            # Puedes decidir si aún quieres abrir la ventana de resultados
+            self.abrir_resultados()
+            return
+
+        
 
         # abrir ventana resultados
         self.abrir_resultados()
