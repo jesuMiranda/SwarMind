@@ -16,7 +16,7 @@ class Plothandler:
             1:  (0, 0, 255),      # Rojo fuerte
             2:  (0, 255, 0),      # Verde fuerte
             3:  (255, 0, 0),      # Azul fuerte
-            4:  (0, 255, 255),    # Amarillo fuerte
+            4:  (128, 255, 0),    # verde acuamarino
             5:  (255, 0, 255),    # Magenta
             6:  (255, 255, 0),    # Cyan
             7:  (0, 128, 255),    # Naranja
