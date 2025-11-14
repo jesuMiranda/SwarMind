@@ -45,6 +45,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_7 = QtWidgets.QVBoxLayout()
         self.verticalLayout_7.setObjectName("verticalLayout_7")
         self.SwarButton = QtWidgets.QPushButton(self.Lateral)
+        self.SwarButton.setStyleSheet("border-radius:20px;\n"
+"background-color: rgb(237, 250, 254);")
         self.SwarButton.setText("")
         self.SwarButton.setIcon(icon)
         self.SwarButton.setIconSize(QtCore.QSize(50, 50))
@@ -57,6 +59,8 @@ class Ui_MainWindow(object):
         spacerItem = QtWidgets.QSpacerItem(20, 48, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_7.addItem(spacerItem)
         self.TestButton = QtWidgets.QPushButton(self.Lateral)
+        self.TestButton.setStyleSheet("border-radius:20px;\n"
+"background-color: rgb(237, 250, 254);")
         self.TestButton.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("recursos/prueba.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -71,6 +75,8 @@ class Ui_MainWindow(object):
         spacerItem1 = QtWidgets.QSpacerItem(20, 28, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_7.addItem(spacerItem1)
         self.ResuButton = QtWidgets.QPushButton(self.Lateral)
+        self.ResuButton.setStyleSheet("background-color: rgb(237, 250, 254);\n"
+"border-radius:20px;")
         self.ResuButton.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("recursos/Resultados.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -85,6 +91,8 @@ class Ui_MainWindow(object):
         spacerItem2 = QtWidgets.QSpacerItem(20, 38, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_7.addItem(spacerItem2)
         self.AboutButton = QtWidgets.QPushButton(self.Lateral)
+        self.AboutButton.setStyleSheet("border-radius:20px;\n"
+"background-color: rgb(237, 250, 254);")
         self.AboutButton.setText("")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("recursos/about.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -125,10 +133,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addItem(spacerItem3)
         self.playButton = QtWidgets.QPushButton(self.bloque1)
         self.playButton.setStyleSheet("color: rgb(0, 255, 255);\n"
+"border-radius:20px;\n"
 "\n"
-"QpushButton{\n"
-"border: 0px;\n"
-"}\n"
 "")
         self.playButton.setText("")
         icon4 = QtGui.QIcon()
@@ -138,6 +144,7 @@ class Ui_MainWindow(object):
         self.playButton.setObjectName("playButton")
         self.horizontalLayout.addWidget(self.playButton)
         self.pauseButton = QtWidgets.QPushButton(self.bloque1)
+        self.pauseButton.setStyleSheet("border-radius:20px;")
         self.pauseButton.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("recursos/pause2svg.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -146,6 +153,7 @@ class Ui_MainWindow(object):
         self.pauseButton.setObjectName("pauseButton")
         self.horizontalLayout.addWidget(self.pauseButton)
         self.stopButton = QtWidgets.QPushButton(self.bloque1)
+        self.stopButton.setStyleSheet("border-radius:20px;")
         self.stopButton.setText("")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap("recursos/stop (1).svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -217,7 +225,8 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addLayout(self.verticalLayout_4, 3, 1, 1, 1)
         self.levelbutton = QtWidgets.QPushButton(self.bloque1)
         self.levelbutton.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"")
+"border-radius:20px;\n"
+"background-color: rgb(196, 238, 250);")
         self.levelbutton.setObjectName("levelbutton")
         self.gridLayout_2.addWidget(self.levelbutton, 4, 0, 1, 2)
         self.gridLayout.addWidget(self.bloque1, 0, 1, 1, 1)
@@ -331,7 +340,8 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.Tmax_var, 5, 1, 1, 1)
         self.enviarButton = QtWidgets.QPushButton(self.frame)
         self.enviarButton.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"")
+"border-radius:20px;\n"
+"background-color: rgb(196, 238, 250);")
         self.enviarButton.setObjectName("enviarButton")
         self.gridLayout_3.addWidget(self.enviarButton, 6, 0, 1, 1)
         self.gridLayout.addWidget(self.frame, 1, 1, 1, 1)

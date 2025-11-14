@@ -92,6 +92,10 @@
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
              <widget class="QPushButton" name="SwarButton">
+              <property name="styleSheet">
+               <string notr="true">border-radius:20px;
+background-color: rgb(237, 250, 254);</string>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -132,6 +136,10 @@
             </item>
             <item>
              <widget class="QPushButton" name="TestButton">
+              <property name="styleSheet">
+               <string notr="true">border-radius:20px;
+background-color: rgb(237, 250, 254);</string>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -172,6 +180,10 @@
             </item>
             <item>
              <widget class="QPushButton" name="ResuButton">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(237, 250, 254);
+border-radius:20px;</string>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -212,6 +224,10 @@
             </item>
             <item>
              <widget class="QPushButton" name="AboutButton">
+              <property name="styleSheet">
+               <string notr="true">border-radius:20px;
+background-color: rgb(237, 250, 254);</string>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -302,10 +318,8 @@
              <widget class="QPushButton" name="playButton">
               <property name="styleSheet">
                <string notr="true">color: rgb(0, 255, 255);
+border-radius:20px;
 
-QpushButton{
-border: 0px;
-}
 </string>
               </property>
               <property name="text">
@@ -325,6 +339,9 @@ border: 0px;
             </item>
             <item>
              <widget class="QPushButton" name="pauseButton">
+              <property name="styleSheet">
+               <string notr="true">border-radius:20px;</string>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -342,6 +359,9 @@ border: 0px;
             </item>
             <item>
              <widget class="QPushButton" name="stopButton">
+              <property name="styleSheet">
+               <string notr="true">border-radius:20px;</string>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -502,7 +522,8 @@ border: 0px;
            <widget class="QPushButton" name="levelbutton">
             <property name="styleSheet">
              <string notr="true">font: 10pt &quot;Tahoma&quot;;
-</string>
+border-radius:20px;
+background-color: rgb(196, 238, 250);</string>
             </property>
             <property name="text">
              <string>Calibrar sensores de distancia</string>
@@ -742,7 +763,8 @@ color: rgb(68, 169, 197);
            <widget class="QPushButton" name="enviarButton">
             <property name="styleSheet">
              <string notr="true">font: 10pt &quot;Tahoma&quot;;
-</string>
+border-radius:20px;
+background-color: rgb(196, 238, 250);</string>
             </property>
             <property name="text">
              <string>Enviar</string>
