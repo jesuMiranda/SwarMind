@@ -2,6 +2,7 @@ import os
 import sys
 import PruebaWIFI1
 import cv2
+from plotgenerator import TrajectoryGenerator
 from PyQt5 import QtWidgets, QtCore, QtGui
 from EnjambreMain import Ui_MainWindow
 from cam import CameraHandler
@@ -107,9 +108,42 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def stop_recording(self):
         self.record_timer.stop()
         self.camera.stop_recording()
+         # =====================
+        # GENERAR VIDEO DE RUTAS
+        # =====================
+        gen = TrajectoryGenerator(self.plano.PALETTE)
 
-        # Mostrar vista de resultados
+        cap = cv2.VideoCapture(self.recording_filename)
+
+        if not cap.isOpened():
+            print("No puedo abrir el video para procesarlo")
+            return
+
+        fps = cap.get(cv2.CAP_PROP_FPS)
+        w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
+        # Leer todo el video y extraer trayectorias
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            gen.process_frame(frame)
+
+        cap.release()
+
+        # Nombre del nuevo video
+        trayectoria_path = self.recording_filename.replace(".avi", "_traj.avi")
+
+        # Generar video de trayectorias
+        gen.generate_video(trayectoria_path, w, h, int(fps))
+
+        print("Video de trayectorias generado:", trayectoria_path)
+
+        # abrir ventana resultados
         self.abrir_resultados()
+
+        
 
     def encender_robots(self):
         PruebaWIFI1.encender_robots()
