@@ -105,6 +105,20 @@ class Ui_MainWindow(object):
         self.bloque1.setObjectName("bloque1")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.bloque1)
         self.gridLayout_2.setObjectName("gridLayout_2")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.sizelabel = QtWidgets.QLabel(self.bloque1)
+        self.sizelabel.setStyleSheet("font: 10pt \"Tahoma\";\n"
+"\n"
+"")
+        self.sizelabel.setObjectName("sizelabel")
+        self.verticalLayout_3.addWidget(self.sizelabel)
+        self.lineEdit = QtWidgets.QLineEdit(self.bloque1)
+        self.lineEdit.setStyleSheet("font: 12pt \"Tahoma\";")
+        self.lineEdit.setObjectName("lineEdit")
+        self.verticalLayout_3.addWidget(self.lineEdit)
+        self.gridLayout_2.addLayout(self.verticalLayout_3, 3, 0, 1, 1)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         spacerItem3 = QtWidgets.QSpacerItem(78, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -146,7 +160,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.dataname = QtWidgets.QLabel(self.bloque1)
         self.dataname.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
 "")
         self.dataname.setObjectName("dataname")
         self.horizontalLayout_2.addWidget(self.dataname)
@@ -156,73 +169,57 @@ class Ui_MainWindow(object):
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.name = QtWidgets.QLineEdit(self.bloque1)
-        self.name.setStyleSheet("font: 12pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.name.setObjectName("name")
-        self.verticalLayout_2.addWidget(self.name)
         self.namelabel = QtWidgets.QLabel(self.bloque1)
         self.namelabel.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
+"\n"
 "")
         self.namelabel.setObjectName("namelabel")
         self.verticalLayout_2.addWidget(self.namelabel)
+        self.name = QtWidgets.QLineEdit(self.bloque1)
+        self.name.setStyleSheet("font: 12pt \"Tahoma\";\n"
+"")
+        self.name.setObjectName("name")
+        self.verticalLayout_2.addWidget(self.name)
         self.gridLayout_2.addLayout(self.verticalLayout_2, 2, 0, 1, 1)
         self.verticalLayout_5 = QtWidgets.QVBoxLayout()
         self.verticalLayout_5.setSpacing(0)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.numberlabel = QtWidgets.QLabel(self.bloque1)
+        self.numberlabel.setStyleSheet("font: 10pt \"Tahoma\";\n"
+"\n"
+"")
+        self.numberlabel.setObjectName("numberlabel")
+        self.verticalLayout_5.addWidget(self.numberlabel)
         self.NumRobot = QtWidgets.QSpinBox(self.bloque1)
         self.NumRobot.setStyleSheet("font: 12pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
 "")
         self.NumRobot.setMinimum(1)
         self.NumRobot.setMaximum(10)
         self.NumRobot.setObjectName("NumRobot")
         self.verticalLayout_5.addWidget(self.NumRobot)
-        self.numberlabel = QtWidgets.QLabel(self.bloque1)
-        self.numberlabel.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.numberlabel.setObjectName("numberlabel")
-        self.verticalLayout_5.addWidget(self.numberlabel)
         self.gridLayout_2.addLayout(self.verticalLayout_5, 2, 1, 1, 1)
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_3.setSpacing(0)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.size = QtWidgets.QComboBox(self.bloque1)
-        self.size.setStyleSheet("font: 12pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.size.setObjectName("size")
-        self.size.addItem("")
-        self.size.addItem("")
-        self.size.addItem("")
-        self.verticalLayout_3.addWidget(self.size)
-        self.sizelabel = QtWidgets.QLabel(self.bloque1)
-        self.sizelabel.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.sizelabel.setObjectName("sizelabel")
-        self.verticalLayout_3.addWidget(self.sizelabel)
-        self.gridLayout_2.addLayout(self.verticalLayout_3, 3, 0, 1, 1)
         self.verticalLayout_4 = QtWidgets.QVBoxLayout()
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.labeldate = QtWidgets.QLabel(self.bloque1)
+        self.labeldate.setStyleSheet("font: 10pt \"Tahoma\";\n"
+"\n"
+"")
+        self.labeldate.setObjectName("labeldate")
+        self.verticalLayout_4.addWidget(self.labeldate)
         self.Fecha = QtWidgets.QDateEdit(self.bloque1)
         self.Fecha.setStyleSheet("font: 12pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
+"\n"
 "")
         self.Fecha.setMinimumDate(QtCore.QDate(2025, 8, 6))
         self.Fecha.setObjectName("Fecha")
         self.verticalLayout_4.addWidget(self.Fecha)
-        self.labeldate = QtWidgets.QLabel(self.bloque1)
-        self.labeldate.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.labeldate.setObjectName("labeldate")
-        self.verticalLayout_4.addWidget(self.labeldate)
         self.gridLayout_2.addLayout(self.verticalLayout_4, 3, 1, 1, 1)
+        self.levelbutton = QtWidgets.QPushButton(self.bloque1)
+        self.levelbutton.setStyleSheet("font: 10pt \"Tahoma\";\n"
+"")
+        self.levelbutton.setObjectName("levelbutton")
+        self.gridLayout_2.addWidget(self.levelbutton, 4, 0, 1, 2)
         self.gridLayout.addWidget(self.bloque1, 0, 1, 1, 1)
         self.frame_3 = QtWidgets.QFrame(self.PrincipalFrame)
         self.frame_3.setStyleSheet("background-color: rgb(237, 250, 254);")
@@ -231,123 +228,113 @@ class Ui_MainWindow(object):
         self.frame_3.setObjectName("frame_3")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.frame_3)
         self.gridLayout_4.setObjectName("gridLayout_4")
+        self.plot = QtWidgets.QLabel(self.frame_3)
+        self.plot.setStyleSheet("background-color: rgb(58, 58, 58);")
+        self.plot.setText("")
+        self.plot.setObjectName("plot")
+        self.gridLayout_4.addWidget(self.plot, 2, 0, 1, 1)
         self.camara = QtWidgets.QLabel(self.frame_3)
-        self.camara.setStyleSheet("background-color: rgb(175, 175, 175);")
+        self.camara.setStyleSheet("background-color: rgb(58, 58, 58);")
         self.camara.setText("")
         self.camara.setObjectName("camara")
         self.gridLayout_4.addWidget(self.camara, 0, 0, 1, 1)
-        self.plot = QtWidgets.QLabel(self.frame_3)
-        self.plot.setStyleSheet("background-color: rgb(145, 145, 145);")
-        self.plot.setText("")
-        self.plot.setObjectName("plot")
-        self.gridLayout_4.addWidget(self.plot, 1, 0, 1, 1)
         self.gridLayout.addWidget(self.frame_3, 0, 2, 2, 1)
-        self.bloque2 = QtWidgets.QFrame(self.PrincipalFrame)
-        self.bloque2.setStyleSheet("background-color: rgb(237, 250, 254);")
-        self.bloque2.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.bloque2.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.bloque2.setObjectName("bloque2")
-        self.gridLayout_3 = QtWidgets.QGridLayout(self.bloque2)
-        self.gridLayout_3.setObjectName("gridLayout_3")
-        self.frame = QtWidgets.QFrame(self.bloque2)
+        self.frame = QtWidgets.QFrame(self.PrincipalFrame)
         self.frame.setStyleSheet("background-color: rgb(237, 250, 254);")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
-        self.gridLayout_6 = QtWidgets.QGridLayout(self.frame)
-        self.gridLayout_6.setObjectName("gridLayout_6")
-        self.tiempo = QtWidgets.QLabel(self.frame)
-        self.tiempo.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.tiempo.setObjectName("tiempo")
-        self.gridLayout_6.addWidget(self.tiempo, 3, 0, 1, 1)
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame)
+        self.gridLayout_3.setObjectName("gridLayout_3")
         self.vel = QtWidgets.QLabel(self.frame)
         self.vel.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
+"\n"
 "")
         self.vel.setObjectName("vel")
-        self.gridLayout_6.addWidget(self.vel, 0, 0, 1, 1)
-        self.alpha = QtWidgets.QLabel(self.frame)
-        self.alpha.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.alpha.setObjectName("alpha")
-        self.gridLayout_6.addWidget(self.alpha, 2, 0, 1, 2)
-        self.thetha_luz = QtWidgets.QLineEdit(self.frame)
-        self.thetha_luz.setStyleSheet("font: 12pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.thetha_luz.setText("")
-        self.thetha_luz.setObjectName("thetha_luz")
-        self.gridLayout_6.addWidget(self.thetha_luz, 2, 2, 1, 1)
-        self.tiempo_2 = QtWidgets.QLabel(self.frame)
-        self.tiempo_2.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.tiempo_2.setObjectName("tiempo_2")
-        self.gridLayout_6.addWidget(self.tiempo_2, 4, 0, 1, 1)
-        self.Lux_lit = QtWidgets.QLineEdit(self.frame)
-        self.Lux_lit.setStyleSheet("font: 12pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.Lux_lit.setText("")
-        self.Lux_lit.setObjectName("Lux_lit")
-        self.gridLayout_6.addWidget(self.Lux_lit, 4, 2, 1, 1)
-        self.label_2 = QtWidgets.QLabel(self.frame)
-        self.label_2.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.label_2.setObjectName("label_2")
-        self.gridLayout_6.addWidget(self.label_2, 5, 0, 1, 1)
-        self.enviarButton = QtWidgets.QPushButton(self.frame)
-        self.enviarButton.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.enviarButton.setObjectName("enviarButton")
-        self.gridLayout_6.addWidget(self.enviarButton, 6, 0, 1, 1)
-        self.deteccion = QtWidgets.QLabel(self.frame)
-        self.deteccion.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.deteccion.setObjectName("deteccion")
-        self.gridLayout_6.addWidget(self.deteccion, 1, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.vel, 0, 0, 1, 1)
         self.vel_motor = QtWidgets.QLineEdit(self.frame)
+        self.vel_motor.setMaximumSize(QtCore.QSize(100, 16777215))
         self.vel_motor.setStyleSheet("font: 12pt \"Tahoma\";\n"
 "color: rgb(68, 169, 197);\n"
 "")
         self.vel_motor.setText("")
         self.vel_motor.setObjectName("vel_motor")
-        self.gridLayout_6.addWidget(self.vel_motor, 0, 2, 1, 1)
-        self.levelbutton = QtWidgets.QPushButton(self.frame)
-        self.levelbutton.setStyleSheet("font: 10pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
+        self.gridLayout_3.addWidget(self.vel_motor, 0, 1, 1, 1)
+        self.deteccion = QtWidgets.QLabel(self.frame)
+        self.deteccion.setStyleSheet("font: 10pt \"Tahoma\";\n"
+"\n"
 "")
-        self.levelbutton.setObjectName("levelbutton")
-        self.gridLayout_6.addWidget(self.levelbutton, 6, 1, 1, 2)
-        self.Tmax_var = QtWidgets.QLineEdit(self.frame)
-        self.Tmax_var.setStyleSheet("font: 12pt \"Tahoma\";\n"
-"color: rgb(68, 169, 197);\n"
-"")
-        self.Tmax_var.setText("")
-        self.Tmax_var.setObjectName("Tmax_var")
-        self.gridLayout_6.addWidget(self.Tmax_var, 5, 2, 1, 1)
+        self.deteccion.setObjectName("deteccion")
+        self.gridLayout_3.addWidget(self.deteccion, 1, 0, 1, 1)
         self.ran_detec = QtWidgets.QLineEdit(self.frame)
+        self.ran_detec.setMaximumSize(QtCore.QSize(100, 16777215))
         self.ran_detec.setStyleSheet("font: 12pt \"Tahoma\";\n"
 "color: rgb(68, 169, 197);\n"
 "")
         self.ran_detec.setText("")
         self.ran_detec.setObjectName("ran_detec")
-        self.gridLayout_6.addWidget(self.ran_detec, 1, 2, 1, 1)
+        self.gridLayout_3.addWidget(self.ran_detec, 1, 1, 1, 1)
+        self.alpha = QtWidgets.QLabel(self.frame)
+        self.alpha.setStyleSheet("font: 10pt \"Tahoma\";\n"
+"\n"
+"")
+        self.alpha.setObjectName("alpha")
+        self.gridLayout_3.addWidget(self.alpha, 2, 0, 1, 1)
+        self.thetha_luz = QtWidgets.QLineEdit(self.frame)
+        self.thetha_luz.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.thetha_luz.setStyleSheet("font: 12pt \"Tahoma\";\n"
+"color: rgb(68, 169, 197);\n"
+"")
+        self.thetha_luz.setText("")
+        self.thetha_luz.setObjectName("thetha_luz")
+        self.gridLayout_3.addWidget(self.thetha_luz, 2, 1, 1, 1)
+        self.tiempo = QtWidgets.QLabel(self.frame)
+        self.tiempo.setStyleSheet("font: 10pt \"Tahoma\";\n"
+"\n"
+"")
+        self.tiempo.setObjectName("tiempo")
+        self.gridLayout_3.addWidget(self.tiempo, 3, 0, 1, 1)
         self.tiempo_prueba = QtWidgets.QLineEdit(self.frame)
+        self.tiempo_prueba.setMaximumSize(QtCore.QSize(100, 16777215))
         self.tiempo_prueba.setStyleSheet("font: 12pt \"Tahoma\";\n"
 "color: rgb(68, 169, 197);\n"
 "")
         self.tiempo_prueba.setText("")
         self.tiempo_prueba.setObjectName("tiempo_prueba")
-        self.gridLayout_6.addWidget(self.tiempo_prueba, 3, 2, 1, 1)
-        self.gridLayout_3.addWidget(self.frame, 0, 0, 1, 1)
-        self.gridLayout.addWidget(self.bloque2, 1, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.tiempo_prueba, 3, 1, 1, 1)
+        self.tiempo_2 = QtWidgets.QLabel(self.frame)
+        self.tiempo_2.setStyleSheet("font: 10pt \"Tahoma\";\n"
+"\n"
+"")
+        self.tiempo_2.setObjectName("tiempo_2")
+        self.gridLayout_3.addWidget(self.tiempo_2, 4, 0, 1, 1)
+        self.Lux_lit = QtWidgets.QLineEdit(self.frame)
+        self.Lux_lit.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.Lux_lit.setStyleSheet("font: 12pt \"Tahoma\";\n"
+"color: rgb(68, 169, 197);\n"
+"")
+        self.Lux_lit.setText("")
+        self.Lux_lit.setObjectName("Lux_lit")
+        self.gridLayout_3.addWidget(self.Lux_lit, 4, 1, 1, 1)
+        self.label_2 = QtWidgets.QLabel(self.frame)
+        self.label_2.setStyleSheet("font: 10pt \"Tahoma\";\n"
+"")
+        self.label_2.setObjectName("label_2")
+        self.gridLayout_3.addWidget(self.label_2, 5, 0, 1, 1)
+        self.Tmax_var = QtWidgets.QLineEdit(self.frame)
+        self.Tmax_var.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.Tmax_var.setStyleSheet("font: 12pt \"Tahoma\";\n"
+"color: rgb(68, 169, 197);\n"
+"")
+        self.Tmax_var.setText("")
+        self.Tmax_var.setObjectName("Tmax_var")
+        self.gridLayout_3.addWidget(self.Tmax_var, 5, 1, 1, 1)
+        self.enviarButton = QtWidgets.QPushButton(self.frame)
+        self.enviarButton.setStyleSheet("font: 10pt \"Tahoma\";\n"
+"")
+        self.enviarButton.setObjectName("enviarButton")
+        self.gridLayout_3.addWidget(self.enviarButton, 6, 0, 1, 1)
+        self.gridLayout.addWidget(self.frame, 1, 1, 1, 1)
         self.gridLayout.setColumnStretch(0, 1)
         self.gridLayout.setColumnStretch(1, 5)
         self.gridLayout.setColumnStretch(2, 5)
@@ -366,23 +353,21 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "Prueba"))
         self.label_5.setText(_translate("MainWindow", " Resultados"))
         self.label_6.setText(_translate("MainWindow", "about us"))
-        self.dataname.setText(_translate("MainWindow", "Datos del experimento"))
-        self.name.setText(_translate("MainWindow", "prueba"))
-        self.namelabel.setText(_translate("MainWindow", "Nombre del experimento"))
-        self.numberlabel.setText(_translate("MainWindow", "No. Robots"))
-        self.size.setItemText(0, _translate("MainWindow", "Grande(4x2 metros)"))
-        self.size.setItemText(1, _translate("MainWindow", "Mediano(3x1.5 metros)"))
-        self.size.setItemText(2, _translate("MainWindow", "Pequeño(2x1 metros)"))
         self.sizelabel.setText(_translate("MainWindow", "Tamaño del area controlada"))
+        self.lineEdit.setText(_translate("MainWindow", "2m x 2m"))
+        self.dataname.setText(_translate("MainWindow", "Datos del experimento"))
+        self.namelabel.setText(_translate("MainWindow", "Nombre del experimento"))
+        self.name.setText(_translate("MainWindow", "prueba"))
+        self.numberlabel.setText(_translate("MainWindow", "No. Robots"))
         self.labeldate.setText(_translate("MainWindow", "Fecha"))
-        self.tiempo.setText(_translate("MainWindow", "Tiempo de prueba (minutos)"))
+        self.levelbutton.setText(_translate("MainWindow", "Calibrar sensores de distancia"))
         self.vel.setText(_translate("MainWindow", "PWM "))
+        self.deteccion.setText(_translate("MainWindow", "Rango de detección"))
         self.alpha.setText(_translate("MainWindow", "Variable thetha"))
+        self.tiempo.setText(_translate("MainWindow", "Tiempo de prueba (minutos)"))
         self.tiempo_2.setText(_translate("MainWindow", "Lux"))
         self.label_2.setText(_translate("MainWindow", "Tmax"))
         self.enviarButton.setText(_translate("MainWindow", "Enviar"))
-        self.deteccion.setText(_translate("MainWindow", "Rango de detección"))
-        self.levelbutton.setText(_translate("MainWindow", "Calibrar sensores de distancia"))
 
 
 if __name__ == "__main__":

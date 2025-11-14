@@ -254,6 +254,35 @@
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
+          <item row="3" column="0">
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="sizelabel">
+              <property name="styleSheet">
+               <string notr="true">font: 10pt &quot;Tahoma&quot;;
+
+</string>
+              </property>
+              <property name="text">
+               <string>Tamaño del area controlada</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit">
+              <property name="styleSheet">
+               <string notr="true">font: 12pt &quot;Tahoma&quot;;</string>
+              </property>
+              <property name="text">
+               <string>2m x 2m</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
           <item row="0" column="0" colspan="2">
            <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
@@ -349,7 +378,6 @@ border: 0px;
              <widget class="QLabel" name="dataname">
               <property name="styleSheet">
                <string notr="true">font: 10pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
 </string>
               </property>
               <property name="text">
@@ -378,26 +406,25 @@ color: rgb(68, 169, 197);
              <number>0</number>
             </property>
             <item>
-             <widget class="QLineEdit" name="name">
-              <property name="styleSheet">
-               <string notr="true">font: 12pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
-</string>
-              </property>
-              <property name="text">
-               <string>prueba</string>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QLabel" name="namelabel">
               <property name="styleSheet">
                <string notr="true">font: 10pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
+
 </string>
               </property>
               <property name="text">
                <string>Nombre del experimento</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="name">
+              <property name="styleSheet">
+               <string notr="true">font: 12pt &quot;Tahoma&quot;;
+</string>
+              </property>
+              <property name="text">
+               <string>prueba</string>
               </property>
              </widget>
             </item>
@@ -409,25 +436,10 @@ color: rgb(68, 169, 197);
              <number>0</number>
             </property>
             <item>
-             <widget class="QSpinBox" name="NumRobot">
-              <property name="styleSheet">
-               <string notr="true">font: 12pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
-</string>
-              </property>
-              <property name="minimum">
-               <number>1</number>
-              </property>
-              <property name="maximum">
-               <number>10</number>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QLabel" name="numberlabel">
               <property name="styleSheet">
                <string notr="true">font: 10pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
+
 </string>
               </property>
               <property name="text">
@@ -435,46 +447,17 @@ color: rgb(68, 169, 197);
               </property>
              </widget>
             </item>
-           </layout>
-          </item>
-          <item row="3" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_3">
-            <property name="spacing">
-             <number>0</number>
-            </property>
             <item>
-             <widget class="QComboBox" name="size">
+             <widget class="QSpinBox" name="NumRobot">
               <property name="styleSheet">
                <string notr="true">font: 12pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
 </string>
               </property>
-              <item>
-               <property name="text">
-                <string>Grande(4x2 metros)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Mediano(3x1.5 metros)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Pequeño(2x1 metros)</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="sizelabel">
-              <property name="styleSheet">
-               <string notr="true">font: 10pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
-</string>
+              <property name="minimum">
+               <number>1</number>
               </property>
-              <property name="text">
-               <string>Tamaño del area controlada</string>
+              <property name="maximum">
+               <number>10</number>
               </property>
              </widget>
             </item>
@@ -486,10 +469,22 @@ color: rgb(68, 169, 197);
              <number>0</number>
             </property>
             <item>
+             <widget class="QLabel" name="labeldate">
+              <property name="styleSheet">
+               <string notr="true">font: 10pt &quot;Tahoma&quot;;
+
+</string>
+              </property>
+              <property name="text">
+               <string>Fecha</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QDateEdit" name="Fecha">
               <property name="styleSheet">
                <string notr="true">font: 12pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
+
 </string>
               </property>
               <property name="minimumDate">
@@ -501,19 +496,18 @@ color: rgb(68, 169, 197);
               </property>
              </widget>
             </item>
-            <item>
-             <widget class="QLabel" name="labeldate">
-              <property name="styleSheet">
-               <string notr="true">font: 10pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
-</string>
-              </property>
-              <property name="text">
-               <string>Fecha</string>
-              </property>
-             </widget>
-            </item>
            </layout>
+          </item>
+          <item row="4" column="0" colspan="2">
+           <widget class="QPushButton" name="levelbutton">
+            <property name="styleSheet">
+             <string notr="true">font: 10pt &quot;Tahoma&quot;;
+</string>
+            </property>
+            <property name="text">
+             <string>Calibrar sensores de distancia</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -530,20 +524,20 @@ color: rgb(68, 169, 197);
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
-          <item row="0" column="0">
-           <widget class="QLabel" name="camara">
+          <item row="2" column="0">
+           <widget class="QLabel" name="plot">
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(175, 175, 175);</string>
+             <string notr="true">background-color: rgb(58, 58, 58);</string>
             </property>
             <property name="text">
              <string/>
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="plot">
+          <item row="0" column="0">
+           <widget class="QLabel" name="camara">
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(145, 145, 145);</string>
+             <string notr="true">background-color: rgb(58, 58, 58);</string>
             </property>
             <property name="text">
              <string/>
@@ -554,7 +548,7 @@ color: rgb(68, 169, 197);
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QFrame" name="bloque2">
+        <widget class="QFrame" name="frame">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(237, 250, 254);</string>
          </property>
@@ -566,186 +560,193 @@ color: rgb(68, 169, 197);
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
-           <widget class="QFrame" name="frame">
+           <widget class="QLabel" name="vel">
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(237, 250, 254);</string>
+             <string notr="true">font: 10pt &quot;Tahoma&quot;;
+
+</string>
             </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+            <property name="text">
+             <string>PWM </string>
             </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="vel_motor">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
             </property>
-            <layout class="QGridLayout" name="gridLayout_6">
-             <item row="3" column="0">
-              <widget class="QLabel" name="tiempo">
-               <property name="styleSheet">
-                <string notr="true">font: 10pt &quot;Tahoma&quot;;
+            <property name="styleSheet">
+             <string notr="true">font: 12pt &quot;Tahoma&quot;;
 color: rgb(68, 169, 197);
 </string>
-               </property>
-               <property name="text">
-                <string>Tiempo de prueba (minutos)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="vel">
-               <property name="styleSheet">
-                <string notr="true">font: 10pt &quot;Tahoma&quot;;
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="deteccion">
+            <property name="styleSheet">
+             <string notr="true">font: 10pt &quot;Tahoma&quot;;
+
+</string>
+            </property>
+            <property name="text">
+             <string>Rango de detección</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="ran_detec">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 12pt &quot;Tahoma&quot;;
 color: rgb(68, 169, 197);
 </string>
-               </property>
-               <property name="text">
-                <string>PWM </string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0" colspan="2">
-              <widget class="QLabel" name="alpha">
-               <property name="styleSheet">
-                <string notr="true">font: 10pt &quot;Tahoma&quot;;
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="alpha">
+            <property name="styleSheet">
+             <string notr="true">font: 10pt &quot;Tahoma&quot;;
+
+</string>
+            </property>
+            <property name="text">
+             <string>Variable thetha</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="thetha_luz">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 12pt &quot;Tahoma&quot;;
 color: rgb(68, 169, 197);
 </string>
-               </property>
-               <property name="text">
-                <string>Variable thetha</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="2">
-              <widget class="QLineEdit" name="thetha_luz">
-               <property name="styleSheet">
-                <string notr="true">font: 12pt &quot;Tahoma&quot;;
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="tiempo">
+            <property name="styleSheet">
+             <string notr="true">font: 10pt &quot;Tahoma&quot;;
+
+</string>
+            </property>
+            <property name="text">
+             <string>Tiempo de prueba (minutos)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="tiempo_prueba">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 12pt &quot;Tahoma&quot;;
 color: rgb(68, 169, 197);
 </string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="tiempo_2">
-               <property name="styleSheet">
-                <string notr="true">font: 10pt &quot;Tahoma&quot;;
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="tiempo_2">
+            <property name="styleSheet">
+             <string notr="true">font: 10pt &quot;Tahoma&quot;;
+
+</string>
+            </property>
+            <property name="text">
+             <string>Lux</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="Lux_lit">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 12pt &quot;Tahoma&quot;;
 color: rgb(68, 169, 197);
 </string>
-               </property>
-               <property name="text">
-                <string>Lux</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="2">
-              <widget class="QLineEdit" name="Lux_lit">
-               <property name="styleSheet">
-                <string notr="true">font: 12pt &quot;Tahoma&quot;;
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="styleSheet">
+             <string notr="true">font: 10pt &quot;Tahoma&quot;;
+</string>
+            </property>
+            <property name="text">
+             <string>Tmax</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="Tmax_var">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 12pt &quot;Tahoma&quot;;
 color: rgb(68, 169, 197);
 </string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="0">
-              <widget class="QLabel" name="label_2">
-               <property name="styleSheet">
-                <string notr="true">font: 10pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QPushButton" name="enviarButton">
+            <property name="styleSheet">
+             <string notr="true">font: 10pt &quot;Tahoma&quot;;
 </string>
-               </property>
-               <property name="text">
-                <string>Tmax</string>
-               </property>
-              </widget>
-             </item>
-             <item row="6" column="0">
-              <widget class="QPushButton" name="enviarButton">
-               <property name="styleSheet">
-                <string notr="true">font: 10pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
-</string>
-               </property>
-               <property name="text">
-                <string>Enviar</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="deteccion">
-               <property name="styleSheet">
-                <string notr="true">font: 10pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
-</string>
-               </property>
-               <property name="text">
-                <string>Rango de detección</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLineEdit" name="vel_motor">
-               <property name="styleSheet">
-                <string notr="true">font: 12pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
-</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="6" column="1" colspan="2">
-              <widget class="QPushButton" name="levelbutton">
-               <property name="styleSheet">
-                <string notr="true">font: 10pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
-</string>
-               </property>
-               <property name="text">
-                <string>Calibrar sensores de distancia</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="2">
-              <widget class="QLineEdit" name="Tmax_var">
-               <property name="styleSheet">
-                <string notr="true">font: 12pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
-</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2">
-              <widget class="QLineEdit" name="ran_detec">
-               <property name="styleSheet">
-                <string notr="true">font: 12pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
-</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="2">
-              <widget class="QLineEdit" name="tiempo_prueba">
-               <property name="styleSheet">
-                <string notr="true">font: 12pt &quot;Tahoma&quot;;
-color: rgb(68, 169, 197);
-</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-            </layout>
+            </property>
+            <property name="text">
+             <string>Enviar</string>
+            </property>
            </widget>
           </item>
          </layout>
