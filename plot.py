@@ -11,19 +11,20 @@ class Plothandler:
         self.refresh_interval = 5  # segundos
         self.current_points = {}
 
-        # 🎨 PALETA de colores suaves PARA IDs 1-10
+        #  PALETA de colores suaves PARA IDs 1-10
         self.PALETTE = {
-            1:  (102, 204, 255),
-            2:  (153, 255, 204),
-            3:  (255, 204, 153),
-            4:  (255, 153, 153),
-            5:  (204, 153, 255),
-            6:  (255, 255, 153),
-            7:  (153, 204, 255),
-            8:  (204, 255, 153),
-            9:  (255, 153, 204),
-            10: (153, 255, 255),
+            1:  (0, 0, 255),      # Rojo fuerte
+            2:  (0, 255, 0),      # Verde fuerte
+            3:  (255, 0, 0),      # Azul fuerte
+            4:  (0, 255, 255),    # Amarillo fuerte
+            5:  (255, 0, 255),    # Magenta
+            6:  (255, 255, 0),    # Cyan
+            7:  (0, 128, 255),    # Naranja
+            8:  (128, 0, 255),    # Morado
+            9:  (255, 0, 128),    # Rosa fuerte
+            10: (0, 255, 128),    # Lima brillante
         }
+
 
     def actualizar_puntos(self, corners, ids):
         if ids is None:
