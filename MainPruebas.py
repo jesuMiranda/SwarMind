@@ -94,7 +94,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             "Nombre experimento": self.name.text(),
             "Robots": self.NumRobot.value(),
             "Fecha": self.Fecha.text(),
-            "Tamaño área": self.name.text(),
+            "Tamaño área": self.tamano.text(),
             "Lux": self.Lux_lit.text(),
             "Rango detección": self.ran_detec.text(),
             "PWM": self.vel_motor.text(),
